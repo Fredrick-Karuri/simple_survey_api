@@ -39,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'survey',
     'rest_framework',
+    'corsheaders',
 ]
 
 MIDDLEWARE = [
@@ -49,7 +50,12 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
+    'django.middleware.common.CommonMiddleware',
 ]
+# CORS_ALLOWED_ORIGINS = True
+CORS_ORIGIN_ALLOW_ALL = True
+
 
 ROOT_URLCONF = 'simple_survey_api.urls'
 
@@ -77,10 +83,18 @@ WSGI_APPLICATION = 'simple_survey_api.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'HOST': 'db.ofeygeunzdqpjyuegpmg.supabase.co',
+        'NAME':'postgres',
+        'USER': 'postgres',
+        'PORT': '5432',
+        'PASSWORD': 'Lub8zLcDT6!Tjn',
+        
     }
 }
+        # 'DATABASE': 'postgres',
+# 'ENGINE': 'django.db.backends.sqlite3',
+# 'NAME': BASE_DIR / 'db.sqlite3',
 
 
 # Password validation

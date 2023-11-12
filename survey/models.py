@@ -3,6 +3,11 @@ import re
 from rest_framework.exceptions import ValidationError
 # A Survey has a name and a description.
 
+class User(models.Model):
+    email = models.EmailField(unique=True )
+
+    def __str__(self):
+        return self.name
 
 class Survey (models.Model):
     name = models.CharField(max_length=200)
@@ -28,13 +33,15 @@ class Question (models.Model):
         (FILE, 'File Upload')
     ]
     survey = models.ForeignKey(Survey, on_delete=models.CASCADE)
-    text = models.CharField(max_length=200)
+    name=models.CharField(max_length=50, default='name')
+    required = models.BooleanField(default=False)
     question_type = models.CharField(
         max_length=2, choices=QUESTION_TYPES, default=TEXT,)
-    required = models.BooleanField(default=False)
+    text = models.CharField(max_length=200)
+    description=models.TextField(null=True, blank=True)
     multiple_choices = models.BooleanField(default=False)
     file_format = models.CharField(max_length=200, null=True, blank=True)
-    max_file_size = models.IntegerField(default=5000000, null=True, blank=True)
+    max_file_size = models.IntegerField(null=True, blank=True)
     multiple_files = models.BooleanField(default=False)
 
     def __str__(self):
@@ -47,6 +54,8 @@ class Choice(models.Model):
     question = models.ForeignKey(
         Question, related_name='choices', on_delete=models.CASCADE)
     text = models.CharField(max_length=200)
+    value =models.CharField(max_length=200, default='value')
+    # multiple_choices = models.BooleanField(default=False)
 
     def __str__(self):
         return self.text
@@ -63,12 +72,14 @@ class File(models.Model):
 
 
 class Response (models.Model):
+    user =models.ForeignKey(User, on_delete=models.CASCADE, null=True)
     question = models.ForeignKey(Question, on_delete=models.CASCADE)
     choice = models.ForeignKey(
         Choice, on_delete=models.CASCADE, null=True, blank=True)
 
     text = models.CharField(max_length=200, null=True, blank=True)
     file = models.FileField(upload_to='uploads/',  null=True, blank=True)
+    date_responded =models.DateTimeField(auto_now_add=True, null=True)
 
     def __str__(self):
         if self.text:
@@ -83,8 +94,6 @@ class Response (models.Model):
     def clean(self):
         if self.question.question_type == Question.CHOICE and self.choice is None:
             raise ValidationError('Please select a choice')
-        # if self.question.question_type == Question.FILE and self.text is not None:
-            # raise ValidationError('Please upload a file')
         
         if self.question.question_type == Question.FILE:
             if not self.file:
@@ -127,3 +136,6 @@ class Response (models.Model):
     #         if self.choice:
     #             raise ValidationError(
     #                 'Choice field must be empty for non-choice type question')
+
+        # if self.question.question_type == Question.FILE and self.text is not None:
+            # raise ValidationError('Please upload a file')

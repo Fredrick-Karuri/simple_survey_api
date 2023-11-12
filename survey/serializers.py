@@ -29,3 +29,17 @@ class ResponseSerializer(serializers.ModelSerializer):
     class Meta:
         model = Response
         fields = '__all__'
+
+
+
+class QuestionResponseSerializer(serializers.Serializer):
+    full_name = serializers.CharField()
+    email_address = serializers.EmailField()
+    gender = serializers.CharField()
+    programming_stack = serializers.ListField(child=serializers.CharField())
+    certificates = serializers.ListField(child=serializers.FileField())
+    date_responded = serializers.DateTimeField()
+
+    
+    # description = serializers.CharField()
+
