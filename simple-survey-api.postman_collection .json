@@ -1,0 +1,386 @@
+{
+	"info": {
+		"_postman_id": "240f3483-2474-4f72-9c86-6c61395042c1",
+		"name": "simple-survey-api",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "18874266"
+	},
+	"item": [
+		{
+			"name": "Get Questions",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/api/questions",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"questions"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get Questions",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/api/questions",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"questions"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Mon, 13 Nov 2023 17:22:27 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.10.12"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept, origin, Cookie"
+						},
+						{
+							"key": "Allow",
+							"value": "GET, POST, HEAD, OPTIONS"
+						},
+						{
+							"key": "Content-Length",
+							"value": "2288"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "[\n    {\n        \"id\": 17,\n        \"choices\": [],\n        \"name\": \"certificates\",\n        \"required\": true,\n        \"question_type\": \"FL\",\n        \"text\": \"Upload any of your certificates.\",\n        \"description\": \"You can upload multiple (.pdf)\",\n        \"multiple_choices\": false,\n        \"file_format\": \"pdf\",\n        \"max_file_size\": 5000000,\n        \"multiple_files\": true,\n        \"survey\": 1\n    },\n    {\n        \"id\": 15,\n        \"choices\": [\n            {\n                \"id\": 1,\n                \"text\": \"Male\",\n                \"value\": \"value\",\n                \"question\": 15\n            },\n            {\n                \"id\": 2,\n                \"text\": \"Female\",\n                \"value\": \"value\",\n                \"question\": 15\n            },\n            {\n                \"id\": 3,\n                \"text\": \"Other\",\n                \"value\": \"value\",\n                \"question\": 15\n            }\n        ],\n        \"name\": \"gender\",\n        \"required\": true,\n        \"question_type\": \"CH\",\n        \"text\": \"What is your gender?\",\n        \"description\": \"\",\n        \"multiple_choices\": false,\n        \"file_format\": null,\n        \"max_file_size\": null,\n        \"multiple_files\": false,\n        \"survey\": 1\n    },\n    {\n        \"id\": 14,\n        \"choices\": [],\n        \"name\": \"description\",\n        \"required\": true,\n        \"question_type\": \"LT\",\n        \"text\": \"Tell us a bit more about yourself\",\n        \"description\": \"\",\n        \"multiple_choices\": false,\n        \"file_format\": null,\n        \"max_file_size\": null,\n        \"multiple_files\": false,\n        \"survey\": 1\n    },\n    {\n        \"id\": 12,\n        \"choices\": [],\n        \"name\": \"user_name\",\n        \"required\": true,\n        \"question_type\": \"TX\",\n        \"text\": \"What is your full name?\",\n        \"description\": \"[Surname] [First Name] [Other Names]\",\n        \"multiple_choices\": false,\n        \"file_format\": null,\n        \"max_file_size\": null,\n        \"multiple_files\": false,\n        \"survey\": 1\n    },\n    {\n        \"id\": 13,\n        \"choices\": [],\n        \"name\": \"email_address\",\n        \"required\": true,\n        \"question_type\": \"EM\",\n        \"text\": \"What is your Email Address?\",\n        \"description\": \"\",\n        \"multiple_choices\": false,\n        \"file_format\": null,\n        \"max_file_size\": null,\n        \"multiple_files\": false,\n        \"survey\": 1\n    },\n    {\n        \"id\": 16,\n        \"choices\": [\n            {\n                \"id\": 4,\n                \"text\": \"React JS\",\n                \"value\": \"REACT\",\n                \"question\": 16\n            },\n            {\n                \"id\": 5,\n                \"text\": \"Angular JS\",\n                \"value\": \"ANGULAR\",\n                \"question\": 16\n            },\n            {\n                \"id\": 6,\n                \"text\": \"Vue JS\",\n                \"value\": \"VUE\",\n                \"question\": 16\n            },\n            {\n                \"id\": 7,\n                \"text\": \"SQL\",\n                \"value\": \"SQL\",\n                \"question\": 16\n            },\n            {\n                \"id\": 8,\n                \"text\": \"Postgres\",\n                \"value\": \"POSTGRES\",\n                \"question\": 16\n            },\n            {\n                \"id\": 9,\n                \"text\": \"MySQL\",\n                \"value\": \"MYSQL\",\n                \"question\": 16\n            },\n            {\n                \"id\": 10,\n                \"text\": \"Microsoft SQL Server\",\n                \"value\": \"MSSQL\",\n                \"question\": 16\n            },\n            {\n                \"id\": 11,\n                \"text\": \"Java\",\n                \"value\": \"Java\",\n                \"question\": 16\n            },\n            {\n                \"id\": 12,\n                \"text\": \"PHP\",\n                \"value\": \"PHP\",\n                \"question\": 16\n            },\n            {\n                \"id\": 13,\n                \"text\": \"Go\",\n                \"value\": \"GO\",\n                \"question\": 16\n            },\n            {\n                \"id\": 14,\n                \"text\": \"Rust\",\n                \"value\": \"RUST\",\n                \"question\": 16\n            }\n        ],\n        \"name\": \"programming_stack\",\n        \"required\": true,\n        \"question_type\": \"CH\",\n        \"text\": \"What programming stack are you familiar with?\",\n        \"description\": \"You can select multiple.\",\n        \"multiple_choices\": true,\n        \"file_format\": null,\n        \"max_file_size\": null,\n        \"multiple_files\": false,\n        \"survey\": 1\n    }\n]"
+				}
+			]
+		},
+		{
+			"name": "Get Answers",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/api/questions/responses",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"questions",
+						"responses"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Get Answers",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8000/api/questions/responses",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"questions",
+								"responses"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Mon, 13 Nov 2023 17:22:17 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.10.12"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept, origin, Cookie"
+						},
+						{
+							"key": "Allow",
+							"value": "GET, PUT, HEAD, OPTIONS"
+						},
+						{
+							"key": "Content-Length",
+							"value": "808"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"count\": 6,\n    \"next\": null,\n    \"previous\": null,\n    \"results\": [\n        {\n            \"id\": 6,\n            \"text\": null,\n            \"file\": null,\n            \"date_responded\": \"2023-11-12T11:54:31.916159Z\",\n            \"user\": null,\n            \"question\": 17,\n            \"choice\": null\n        },\n        {\n            \"id\": 1,\n            \"text\": \"Fredrick Karuri\",\n            \"file\": null,\n            \"date_responded\": \"2023-11-12T11:54:31.916159Z\",\n            \"user\": null,\n            \"question\": 12,\n            \"choice\": null\n        },\n        {\n            \"id\": 2,\n            \"text\": \"fredrickkmaish@gmail.com\",\n            \"file\": null,\n            \"date_responded\": \"2023-11-12T11:54:31.916159Z\",\n            \"user\": null,\n            \"question\": 13,\n            \"choice\": null\n        },\n        {\n            \"id\": 3,\n            \"text\": \"rrttttrt\",\n            \"file\": null,\n            \"date_responded\": \"2023-11-12T11:54:31.916159Z\",\n            \"user\": null,\n            \"question\": 14,\n            \"choice\": null\n        },\n        {\n            \"id\": 4,\n            \"text\": \"Male\",\n            \"file\": null,\n            \"date_responded\": \"2023-11-12T11:54:31.916159Z\",\n            \"user\": null,\n            \"question\": 15,\n            \"choice\": 1\n        },\n        {\n            \"id\": 5,\n            \"text\": null,\n            \"file\": null,\n            \"date_responded\": \"2023-11-12T11:54:31.916159Z\",\n            \"user\": null,\n            \"question\": 16,\n            \"choice\": 7\n        }\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "new response",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "user_name",
+							"value": "Jane Doe",
+							"type": "text"
+						},
+						{
+							"key": "email_address",
+							"value": "janedoe@gmail.com",
+							"type": "text"
+						},
+						{
+							"key": "description",
+							"value": " \"I am an experienced FrontEnd Engineer with over 6 years experience.\",",
+							"type": "text"
+						},
+						{
+							"key": "gender",
+							"value": "Female",
+							"type": "text"
+						},
+						{
+							"key": "programming_stack",
+							"value": " [\"REACT\", \"VUE\"],",
+							"type": "text"
+						},
+						{
+							"key": "certificates",
+							"type": "file",
+							"src": "/home/fredrick/Documents/Important/ID card.pdf"
+						},
+						{
+							"key": "certificates",
+							"type": "file",
+							"src": "/home/fredrick/Documents/Important/Transcript.pdf"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/questions/responses",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"questions",
+						"responses"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "new response",
+					"originalRequest": {
+						"method": "PUT",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "user_name",
+									"value": "Jane Doe",
+									"type": "text"
+								},
+								{
+									"key": "user_email",
+									"value": "janedoe@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": " \"I am an experienced FrontEnd Engineer with over 6 years experience.\",",
+									"type": "text"
+								},
+								{
+									"key": "gender",
+									"value": "Female",
+									"type": "text"
+								},
+								{
+									"key": "programming_stack",
+									"value": " [\"REACT\", \"VUE\"],",
+									"type": "text"
+								},
+								{
+									"key": "certificates",
+									"type": "file",
+									"src": [
+										"/home/fredrick/Documents/Important/certificates/Digital Strategy  Certificate - Coursera & Darden School.pdf",
+										"/home/fredrick/Documents/Important/certificates/Google UX Design Certificate (GUDC) .pdf"
+									]
+								},
+								{
+									"key": "certificates",
+									"type": "file",
+									"src": []
+								}
+							],
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8000/api/questions/responses",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8000",
+							"path": [
+								"api",
+								"questions",
+								"responses"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Date",
+							"value": "Mon, 13 Nov 2023 19:51:12 GMT"
+						},
+						{
+							"key": "Server",
+							"value": "WSGIServer/0.2 CPython/3.10.12"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						},
+						{
+							"key": "Vary",
+							"value": "Accept, origin, Cookie"
+						},
+						{
+							"key": "Allow",
+							"value": "GET, PUT, HEAD, OPTIONS"
+						},
+						{
+							"key": "Content-Length",
+							"value": "55"
+						},
+						{
+							"key": "X-Frame-Options",
+							"value": "DENY"
+						},
+						{
+							"key": "X-Content-Type-Options",
+							"value": "nosniff"
+						},
+						{
+							"key": "Referrer-Policy",
+							"value": "same-origin"
+						},
+						{
+							"key": "Cross-Origin-Opener-Policy",
+							"value": "same-origin"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"detail\": \"Responses created or updated successfully.\"\n}"
+				}
+			]
+		},
+		{
+			"name": "get Certificate",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:8000/api/questions/responses/certificates/1",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"questions",
+						"responses",
+						"certificates",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
