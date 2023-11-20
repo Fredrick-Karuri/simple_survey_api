@@ -97,32 +97,6 @@ class Response (models.Model):
         else:
             return "No response"
 
-
-# class File(models.Model):
-#     response = models.ForeignKey(
-#         'Response', related_name='files', on_delete=models.CASCADE, null=True, blank=True)
-#     file = models.FileField(upload_to='uploads/')
-
-
-# class Response(models.Model):
-#     user = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
-#     question = models.ForeignKey(Question, on_delete=models.CASCADE)
-#     choice = models.ForeignKey(
-#         Choice, on_delete=models.CASCADE, null=True, blank=True)
-#     text = models.CharField(max_length=200, null=True, blank=True)
-#     date_responded = models.DateTimeField(auto_now_add=True, null=True)
-
-#     def __str__(self):
-#         if self.text:
-#             return self.text
-#         elif self.choice:
-#             return str(self.choice)
-#         elif self.files.exists():
-#             return ', '.join([f.file.name for f in self.files.all()])
-#         else:
-#             return "No response"
-
-
     def clean(self):
         if self.question.question_type == Question.CHOICE and self.choice is None:
             raise ValidationError('Please select a choice')
@@ -155,21 +129,27 @@ class Response (models.Model):
             if not re.match(r"[^@]+@[^@]+\.[^@]+", self.text):
                 raise ValidationError('Please enter a valid email address')
 
-    # def clean(self):
-    #     if self.question.question_type == Question.CHOICE:
-    #         if not self.choice:
-    #             raise ValidationError(
-    #                 'Choice field must be selected for choice type question')
-    #         if self.text:
-    #             raise ValidationError(
-    #                 'Text field must be empty for choice type question')
-    #     else:
-    #         if not self.text:
-    #             raise ValidationError(
-    #                 'Text field must be filled for non-choice type question')
-    #         if self.choice:
-    #             raise ValidationError(
-    #                 'Choice field must be empty for non-choice type question')
 
-        # if self.question.question_type == Question.FILE and self.text is not None:
-            # raise ValidationError('Please upload a file')
+# class File(models.Model):
+#     response = models.ForeignKey(
+#         'Response', related_name='files', on_delete=models.CASCADE, null=True, blank=True)
+#     file = models.FileField(upload_to='uploads/')
+
+
+# class Response(models.Model):
+#     user = models.ForeignKey(User, on_delete=models.CASCADE, null=True)
+#     question = models.ForeignKey(Question, on_delete=models.CASCADE)
+#     choice = models.ForeignKey(
+#         Choice, on_delete=models.CASCADE, null=True, blank=True)
+#     text = models.CharField(max_length=200, null=True, blank=True)
+#     date_responded = models.DateTimeField(auto_now_add=True, null=True)
+
+#     def __str__(self):
+#         if self.text:
+#             return self.text
+#         elif self.choice:
+#             return str(self.choice)
+#         elif self.files.exists():
+#             return ', '.join([f.file.name for f in self.files.all()])
+#         else:
+#             return "No response"

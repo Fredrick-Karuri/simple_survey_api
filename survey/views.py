@@ -91,7 +91,7 @@ class QuestionResponseView(generics.ListAPIView):
 
         # get the use from the request data
         user_email = data.get('user_email')
-        user, _ = User.objects.get_or_create(email=user_email)
+        # user, _ = User.objects.get_or_create(email=user_email)
 
         # iterate over the questions in the request data
         for question_name, response_text in data.items():
